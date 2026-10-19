@@ -1,0 +1,520 @@
+---
+import '../styles/global.css';
+import SerafimMark from '../components/SerafimMark.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = `${site.name} — ${site.tagline}`,
+  description = site.description,
+  noindex = false,
+} = Astro.props;
+
+// Root-relative so the links still work from the legal pages.
+const nav = [
+  { href: '/#features', label: 'Features' },
+  { href: '/#discover', label: 'Discover' },
+  { href: '/#privacy', label: 'Privacy' },
+  { href: '/#download', label: 'Get the app' },
+];
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <meta name="theme-color" content="#4D44B6" />
+    <meta name="color-scheme" content="dark light" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.url).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — ${site.tagline}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/og-image.png', Astro.url).href} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap"
+    />
+
+    <script is:inline>
+      // Flag that JS is running, so CSS only hides elements it can bring back.
+      document.documentElement.classList.add('js');
+
+      // Apply the saved theme before first paint so the page never flashes.
+      (function () {
+        try {
+          var saved = localStorage.getItem('serafim-theme');
+          var theme =
+            saved ||
+            (window.matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          /* storage blocked — keep the dark default */
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" id="nav">
+      <div class="wrap nav__inner">
+        <a class="nav__brand" href="/#top" aria-label={`${site.name} home`}>
+          <SerafimMark size={34} />
+          <span class="nav__word">SERAFIM</span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          {
+            nav.map((item) => (
+              <a class="nav__link" href={item.href}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="nav__actions">
+          <button
+            class="icon-btn"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch colour theme"
+          >
+            <span class="icon-btn__sun"><Icon name="sun" size={17} /></span>
+            <span class="icon-btn__moon"><Icon name="moon" size={17} /></span>
+          </button>
+
+          <a class="btn btn--primary btn--sm" href={site.releases} target="_blank" rel="noopener">
+            Get the app
+          </a>
+
+          <button
+            class="icon-btn nav__burger"
+            id="nav-burger"
+            type="button"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="nav-mobile"
+          >
+            <Icon name="menu" size={19} />
+          </button>
+        </div>
+      </div>
+
+      <div class="nav__mobile" id="nav-mobile" hidden>
+        {
+          nav.map((item) => (
+            <a class="nav__mobile-link" href={item.href}>
+              {item.label}
+            </a>
+          ))
+        }
+        <a class="nav__mobile-link" href={site.repo} target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a class="nav__brand" href="/#top">
+              <SerafimMark size={30} />
+              <span class="nav__word">SERAFIM</span>
+            </a>
+            <p class="footer__tag">{site.tagline}</p>
+            <p class="footer__blurb">
+              A free, real-time messaging and social app built by Binary Forge.
+              Android today — iOS and web on the way.
+            </p>
+          </div>
+
+          <div class="footer__col">
+            <h4 class="footer__title">Product</h4>
+            <a href="/#features">Features</a>
+            <a href="/#discover">Discover</a>
+            <a href="/#privacy">Privacy</a>
+            <a href="/#get-app">Free forever</a>
+            <a href="/#download">Download</a>
+          </div>
+
+          <div class="footer__col">
+            <h4 class="footer__title">Project</h4>
+            <a href={site.repo} target="_blank" rel="noopener">Source code</a>
+            <a href={site.releases} target="_blank" rel="noopener">Releases</a>
+            <a href="/privacy">Privacy policy</a>
+            <a href="/terms">Terms of use</a>
+          </div>
+
+          <div class="footer__col">
+            <h4 class="footer__title">Get in touch</h4>
+            <a href="mailto:hello@serafim.app">hello@serafim.app</a>
+            <a href={site.repo} target="_blank" rel="noopener">GitHub</a>
+            <a href={`${site.repo}/issues`} target="_blank" rel="noopener">Report an issue</a>
+          </div>
+        </div>
+
+        <div class="footer__base">
+          <p class="mono">
+            v{site.version} · {site.packageId} · Made by {site.author}
+          </p>
+          <p class="mono">© {new Date().getFullYear()} {site.author}</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ---- theme toggle -------------------------------------------------
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+
+      toggle?.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('serafim-theme', next);
+        } catch (e) {
+          /* ignore */
+        }
+      });
+
+      // ---- mobile nav ---------------------------------------------------
+      const burger = document.getElementById('nav-burger');
+      const mobile = document.getElementById('nav-mobile');
+
+      burger?.addEventListener('click', () => {
+        if (!mobile) return;
+        const open = mobile.hasAttribute('hidden');
+        if (open) mobile.removeAttribute('hidden');
+        else mobile.setAttribute('hidden', '');
+        burger.setAttribute('aria-expanded', String(open));
+      });
+
+      mobile?.querySelectorAll('a').forEach((link) =>
+        link.addEventListener('click', () => {
+          mobile.setAttribute('hidden', '');
+          burger?.setAttribute('aria-expanded', 'false');
+        }),
+      );
+
+      // ---- scroll reveal ------------------------------------------------
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const items = document.querySelectorAll('.reveal');
+      const revealAll = () =>
+        items.forEach((el) => el.classList.add('is-in'));
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        revealAll();
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          // Any overlap counts, and we look a little further down the page
+          // so an element is already visible by the time it is reached.
+          { rootMargin: '0px 0px 120px 0px', threshold: 0 },
+        );
+        items.forEach((el) => io.observe(el));
+
+        // Safety net: content must never stay hidden.
+        window.setTimeout(revealAll, 3000);
+      }
+
+      // ---- nav shadow on scroll -----------------------------------------
+      const nav = document.getElementById('nav');
+      const onScroll = () => nav?.classList.toggle('is-stuck', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 200;
+    padding: 0.75rem 1rem;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .skip-link:focus {
+    left: 0;
+  }
+
+  /* ------------------------------------------------------------ nav */
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: var(--bw) solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .nav.is-stuck {
+    border-bottom-color: var(--line);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 68px;
+  }
+
+  .nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--text);
+    text-decoration: none;
+    flex: none;
+  }
+
+  .nav__brand:hover {
+    text-decoration: none;
+  }
+
+  .nav__word {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: var(--primary-pale);
+  }
+
+  .nav__links {
+    display: flex;
+    gap: 1.6rem;
+    margin-left: auto;
+  }
+
+  .nav__link {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .nav__link:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: none;
+  }
+
+  .icon-btn {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: var(--paper-alt);
+    border: var(--bw) solid var(--line);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .icon-btn:hover {
+    background: var(--paper-raised);
+    color: var(--primary-pale);
+  }
+
+  .icon-btn__moon {
+    display: none;
+  }
+
+  :root[data-theme='light'] .icon-btn__sun {
+    display: none;
+  }
+
+  :root[data-theme='light'] .icon-btn__moon {
+    display: block;
+  }
+
+  .nav__burger {
+    display: none;
+  }
+
+  .nav__mobile {
+    display: none;
+    flex-direction: column;
+    border-top: var(--bw) solid var(--line);
+    background: var(--paper);
+  }
+
+  .nav__mobile[hidden] {
+    display: none;
+  }
+
+  .nav__mobile-link {
+    padding: 0.9rem var(--gutter);
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav__mobile-link:hover {
+    background: var(--paper-raised);
+    text-decoration: none;
+  }
+
+  /* ---------------------------------------------------------- footer */
+
+  .footer {
+    padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+    background: var(--ink);
+    border-top: var(--bw) solid var(--line);
+  }
+
+  .footer__grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: minmax(240px, 1.6fr) repeat(3, minmax(140px, 1fr));
+  }
+
+  .footer__tag {
+    margin: 1rem 0 0;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+
+  .footer__blurb {
+    margin: 0.6rem 0 0;
+    max-width: 34ch;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+  }
+
+  .footer__title {
+    margin: 0 0 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-pale);
+  }
+
+  .footer__col a {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+
+  .footer__col a:hover {
+    color: var(--text);
+    text-decoration: underline;
+  }
+
+  .footer__base {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .footer__base p {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .footer__grid {
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
+    }
+
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .nav__links {
+      display: none;
+    }
+
+    .nav__burger {
+      display: grid;
+    }
+
+    .nav__mobile {
+      display: flex;
+    }
+
+    .nav__inner {
+      gap: 0.75rem;
+    }
+
+    .nav__actions {
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

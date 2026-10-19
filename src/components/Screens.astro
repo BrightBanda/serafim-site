@@ -1,0 +1,420 @@
+---
+import Icon from './Icon.astro';
+
+const waveform = [8, 14, 22, 12, 26, 18, 30, 16, 10, 24, 20, 12, 28, 14, 9, 18, 25, 11, 20, 14, 8, 17, 22, 12, 16, 9, 20, 14, 10, 18];
+---
+
+<section class="section screens" id="screens">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">The app</p>
+      <h2 class="h2">Three tabs. Nothing else.</h2>
+      <p class="lead">
+        Chats, Discover and Profile. The app opens straight to your
+        conversations — the way a messenger should — and every screen is
+        reachable in one tap from there.
+      </p>
+    </div>
+
+    <div class="screens__grid">
+      <!-- ---------------------------------------------------- conversation -->
+      <figure class="shot reveal">
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span class="phone__bar-back"><Icon name="reply" size={13} /></span>
+              <span class="phone__bar-title">Thandi Moyo</span>
+              <span class="phone__bar-spacer"></span>
+              <span class="phone__online">Online</span>
+            </div>
+
+            <div class="phone__body">
+              <p class="bubble">
+                Are we still on for six?
+                <span class="bubble__time">17:41</span>
+              </p>
+              <p class="bubble bubble--out">
+                Yes. Leaving in ten.
+                <span class="bubble__time">17:42 ✓✓</span>
+              </p>
+
+              <div class="bubble bubble--out bubble--voice">
+                <span class="voice__play"><Icon name="play" size={10} /></span>
+                <span class="voice__wave">
+                  {
+                    waveform.map((h) => (
+                      <span class="voice__bar" style={`height:${h}px`} />
+                    ))
+                  }
+                </span>
+                <span class="voice__len">0:12</span>
+              </div>
+
+              <p class="bubble">
+                <span class="sticker">★</span>
+                <span class="bubble__time">17:44</span>
+              </p>
+            </div>
+
+            <div class="phone__nav">
+              <span class="is-on">Chats</span>
+              <span>Discover</span>
+              <span>Profile</span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="shot__cap">
+          <strong>Conversations</strong>
+          <span>Replies, edits, read receipts, voice notes, stickers.</span>
+        </figcaption>
+      </figure>
+
+      <!-- ----------------------------------------------------------- group -->
+      <figure class="shot reveal">
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span class="phone__bar-back"><Icon name="reply" size={13} /></span>
+              <span class="phone__bar-title">Netball Club</span>
+              <span class="phone__bar-spacer"></span>
+            </div>
+
+            <div class="phone__body">
+              <div class="rules">
+                <span class="rules__label">Group rules</span>
+                <p>Match talk only. Be kind. Match starts 6pm sharp.</p>
+              </div>
+
+              <div class="members">
+                <span class="avatar">TM</span>
+                <span class="avatar avatar--teal">KA</span>
+                <span class="avatar avatar--rust">AC</span>
+                <span class="avatar">RB</span>
+                <span class="avatar avatar--teal">+10</span>
+              </div>
+
+              <p class="bubble">
+                We need one more for the away side
+                <span class="bubble__time">18:02</span>
+              </p>
+              <p class="bubble bubble--out">
+                I can play
+                <span class="bubble__time">18:03 ✓✓</span>
+              </p>
+              <p class="bubble">
+                <span class="bubble__name">Admin · Thandi</span>
+                Locked the group.
+                <span class="bubble__time">18:04</span>
+              </p>
+            </div>
+
+            <div class="phone__nav">
+              <span class="is-on">Chats</span>
+              <span>Discover</span>
+              <span>Profile</span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="shot__cap">
+          <strong>Group rooms</strong>
+          <span>Roles, house rules, and control over who can add you.</span>
+        </figcaption>
+      </figure>
+
+      <!-- --------------------------------------------------------- profile -->
+      <figure class="shot reveal">
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span class="phone__bar-back"><Icon name="reply" size={13} /></span>
+              <span class="phone__bar-title">Profile</span>
+              <span class="phone__bar-spacer"></span>
+            </div>
+
+            <div class="phone__body">
+              <div class="profile">
+                <span class="profile__avatar">RB</span>
+                <span class="profile__name">Rita Banda</span>
+                <span class="profile__handle">@ritabanda</span>
+                <span class="profile__bio">Cycling, afrobeats, and long walks.</span>
+              </div>
+
+              <div class="counts">
+                <div class="count">
+                  <span class="count__n">248</span>
+                  <span class="count__l">Followers</span>
+                </div>
+                <div class="count">
+                  <span class="count__n">191</span>
+                  <span class="count__l">Following</span>
+                </div>
+                <div class="count">
+                  <span class="count__n">64</span>
+                  <span class="count__l">Friends</span>
+                </div>
+              </div>
+
+              <div class="profile__tags">
+                <span class="tag tag--on">Cycling</span>
+                <span class="tag tag--on">Afrobeats</span>
+                <span class="tag">Hiking</span>
+                <span class="tag">Travel</span>
+              </div>
+
+              <div class="profile__actions">
+                <span class="btn btn--primary btn--block btn--sm">Message</span>
+                <span class="btn btn--ghost btn--block btn--sm">Follow</span>
+              </div>
+
+              <p class="profile__uid">UID · 4f2a9c81-b7e3-4d55-9a10-88c2d1e60f74</p>
+            </div>
+
+            <div class="phone__nav">
+              <span>Chats</span>
+              <span>Discover</span>
+              <span class="is-on">Profile</span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="shot__cap">
+          <strong>Public profiles</strong>
+          <span>Interests, followers and friends, with a lock if you want one.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .screens__grid {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    align-items: start;
+  }
+
+  .shot {
+    margin: 0;
+  }
+
+  .shot .phone {
+    margin-inline: auto;
+  }
+
+  .shot__cap {
+    margin: 1.25rem auto 0;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .shot__cap strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .shot__cap span {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+
+  .phone__bar-back {
+    display: grid;
+    place-items: center;
+    color: var(--primary-pale);
+    transform: rotate(180deg);
+  }
+
+  .phone__online {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--teal-pale);
+  }
+
+  .bubble__name {
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--primary-pale);
+  }
+
+  /* voice note */
+  .bubble--voice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 88%;
+  }
+
+  .voice__play {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .voice__wave {
+    display: flex;
+    align-items: center;
+    gap: 1.5px;
+    height: 30px;
+  }
+
+  .voice__bar {
+    width: 2px;
+    background: var(--primary-pale);
+    opacity: 0.75;
+  }
+
+  .voice__len {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    color: var(--text-dim);
+  }
+
+  .sticker {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+    color: var(--primary-pale);
+  }
+
+  /* group */
+  .rules {
+    margin-bottom: 0.7rem;
+    padding: 0.5rem 0.6rem;
+    background: var(--paper-raised);
+    border-left: 2px solid var(--primary);
+  }
+
+  .rules__label {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-pale);
+  }
+
+  .rules p {
+    margin: 0.2rem 0 0;
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--text-dim);
+  }
+
+  .members {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 0.7rem;
+  }
+
+  /* profile */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .profile__avatar {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 0.4rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--primary) 26%, transparent);
+    border: var(--bw) solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-pale);
+  }
+
+  .profile__name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .profile__handle {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--text-dim);
+  }
+
+  .profile__bio {
+    margin-top: 0.3rem;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  .counts {
+    display: flex;
+    gap: 0.4rem;
+    margin: 0.8rem 0;
+  }
+
+  .count {
+    flex: 1;
+    padding: 0.45rem 0.3rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+
+  .count__n {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .count__l {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .profile__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .profile__actions {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .profile__uid {
+    margin: 0.9rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    letter-spacing: 0.02em;
+    color: var(--text-dim);
+    text-align: center;
+    word-break: break-all;
+  }
+</style>

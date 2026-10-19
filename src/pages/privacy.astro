@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+---
+
+<Base
+  title={`Privacy policy — ${site.name}`}
+  description={`How ${site.name} handles your account, your messages and your photos.`}
+>
+  <section class="section legal">
+    <div class="wrap legal__inner">
+      <p class="eyebrow">Legal</p>
+      <h1 class="h2">Privacy policy</h1>
+      <p class="legal__updated mono">Applies to Serafim v{site.version} · {site.packageId}</p>
+
+      <p class="lead">
+        This is a plain description of what the app does with your data,
+        written from the app's actual behaviour. It is short on purpose.
+      </p>
+
+      <h2>What we store</h2>
+      <ul>
+        <li>
+          <strong>Your account.</strong> The email address you sign in with,
+          your display name, username, bio, avatar, and the interests you
+          choose. Your email is only used to sign in and to recover access.
+        </li>
+        <li>
+          <strong>Your profile photo.</strong> Stored in a private storage
+          bucket that only you can write to, so nobody can overwrite your
+          picture.
+        </li>
+        <li>
+          <strong>Your messages.</strong> Text messages, group membership,
+          friendships, follows and notifications are stored on Serafim's own
+          database so they can be delivered to other people and shown to you
+          on your next device.
+        </li>
+        <li>
+          <strong>Your device token.</strong> A push notification token, so
+          Serafim can tell your phone about a new message. It is removed when
+          you sign out.
+        </li>
+        <li>
+          <strong>Your preferences.</strong> Theme, text size, chat
+          backgrounds, read receipts, privacy choices and message retention
+          settings, kept on your device.
+        </li>
+      </ul>
+
+      <h2>What we do not store</h2>
+      <ul>
+        <li>
+          <strong>Chat photos and voice notes.</strong> These are never
+          uploaded to our servers. They are resized on your phone and then
+          delivered to the people in the conversation, who keep their own
+          copies. If a participant deletes a photo, it is removed from the
+          device where it happened.
+        </li>
+        <li>
+          <strong>Your password.</strong> Sign-in is handled by a third-party
+          identity service. Your password is sent directly to it and never
+          reaches Serafim servers, which only ever see a session token. The
+          refresh token is kept in encrypted storage on your device.
+        </li>
+        <li>
+          <strong>Your attention.</strong> There is no advertising SDK and no
+          analytics SDK in the app. We do not sell your data, and we do not
+          build advertising profiles.
+        </li>
+      </ul>
+
+      <h2>Who else is involved</h2>
+      <ul>
+        <li>
+          <strong>Supabase</strong> — sign-in, the primary database and
+          private file storage.
+        </li>
+        <li>
+          <strong>Cloudflare</strong> — the edge network that fronts the
+          API so the app stays reachable on restrictive mobile networks.
+        </li>
+        <li>
+          <strong>Google</strong> — sign-in, and push delivery for Android
+          notifications.
+        </li>
+      </ul>
+      <p>
+        Each of them processes data only to provide the service it is there
+        for. None of them receive your chat photos or voice notes, because
+        those never reach a server.
+      </p>
+
+      <h2>Your controls</h2>
+      <ul>
+        <li>Lock your profile to hide friends, followers and following.</li>
+        <li>Turn read receipts on or off.</li>
+        <li>Decide whether anyone, only friends, or nobody can add you to groups.</li>
+        <li>Choose whether strangers may send you friend requests.</li>
+        <li>Set how long messages are kept on your device.</li>
+        <li>Delete a message for yourself, or for everyone in the conversation.</li>
+        <li>Delete your account and everything attached to it.</li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>
+        Serafim is not directed at children under 13, and we do not knowingly
+        collect information from them.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If this policy changes, the new version will be published here and
+        announced in the official SERAFIM chat inside the app.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions, requests, or corrections:{' '}
+        <a href="mailto:hello@serafim.app">hello@serafim.app</a>, or open an
+        issue on <a href={site.repo} target="_blank" rel="noopener">GitHub</a>.
+      </p>
+
+      <p class="legal__back">
+        <a class="btn btn--ghost" href="/">← Back to the homepage</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal__inner {
+    max-width: 720px;
+  }
+
+  .legal__updated {
+    display: block;
+    margin-top: 0.75rem;
+  }
+
+  .legal :global(h2) {
+    margin: 2.5rem 0 0.75rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .legal :global(ul) {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .legal :global(li) {
+    margin-bottom: 0.6rem;
+    font-size: 0.9375rem;
+    color: var(--text-dim);
+  }
+
+  .legal :global(li strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .legal :global(p) {
+    font-size: 0.9375rem;
+    color: var(--text-dim);
+  }
+
+  .legal__back {
+    margin-top: 3rem;
+  }
+</style>

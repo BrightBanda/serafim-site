@@ -1,0 +1,179 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="section section--alt" id="network">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">Built for real networks</p>
+      <h2 class="h2">It connects where other apps don't.</h2>
+      <p class="lead">
+        Serafim was built for people on mobile networks that block the usual
+        hosting providers, and for the cheap Android Go phones that other apps
+        already skip. Those are design constraints, not afterthoughts.
+      </p>
+    </div>
+
+    <div class="net">
+      <div class="net__path reveal">
+        <div class="net__node">
+          <span class="net__icon"><Icon name="phone" size={18} /></span>
+          <span class="net__name">Your phone</span>
+          <span class="net__desc">Message stored locally first</span>
+        </div>
+
+        <span class="net__link"><span class="net__link-line"></span></span>
+
+        <div class="net__node">
+          <span class="net__icon"><Icon name="signal" size={18} /></span>
+          <span class="net__name">Edge network</span>
+          <span class="net__desc">Reachable on any operator</span>
+        </div>
+
+        <span class="net__link"><span class="net__link-line"></span></span>
+
+        <div class="net__node">
+          <span class="net__icon"><Icon name="server" size={18} /></span>
+          <span class="net__name">Serafim API</span>
+          <span class="net__desc">Realtime messages and accounts</span>
+        </div>
+      </div>
+
+      <div class="net__grid">
+        <article class="card reveal">
+          <div class="card__icon"><Icon name="signal" /></div>
+          <h3 class="h4">Fronted by an edge network</h3>
+          <p>
+            The app's API sits behind a CDN edge, because some mobile networks
+            block the addresses its host is published on. If you have ever seen
+            "can't reach the server" on a chat app, this is the fix.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon"><Icon name="android" /></div>
+          <h3 class="h4">One APK, both architectures</h3>
+          <p>
+            A single download covers 32-bit and 64-bit phones, so the cheap
+            itel and Android Go devices in the market can install it too. You
+            can never grab the wrong file.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon"><Icon name="bolt" /></div>
+          <h3 class="h4">Local-first, not server-first</h3>
+          <p>
+            Messages are written to the phone's own database and then synced.
+            The app opens straight to your chat list, and conversations still
+            open when the network drops.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon"><Icon name="image" /></div>
+          <h3 class="h4">Shrink before you send</h3>
+          <p>
+            Photos are resized on the device before they go anywhere. Pick
+            data saver, standard or high quality and Serafim does the rest
+            before it touches your data bundle.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .net__path {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .net__node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    flex: 1;
+    max-width: 220px;
+    padding: 1.2rem 1rem;
+    background: var(--paper-alt);
+    border: var(--bw) solid var(--line);
+    text-align: center;
+  }
+
+  .net__icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0.25rem;
+    background: var(--paper-raised);
+    border: var(--bw) solid var(--line);
+    color: var(--primary-pale);
+  }
+
+  .net__name {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .net__desc {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .net__link {
+    display: flex;
+    align-items: center;
+    width: clamp(18px, 5vw, 60px);
+  }
+
+  .net__link-line {
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+  }
+
+  .net__grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 800px) {
+    .net__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .net__path {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .net__node {
+      max-width: none;
+    }
+
+    .net__link {
+      width: 100%;
+      height: 22px;
+      justify-content: center;
+    }
+
+    .net__link-line {
+      width: 2px;
+      height: 100%;
+    }
+  }
+</style>

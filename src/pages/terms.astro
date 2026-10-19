@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+---
+
+<Base
+  title={`Terms of use — ${site.name}`}
+  description={`The terms that apply when you use ${site.name}.`}
+>
+  <section class="section legal">
+    <div class="wrap legal__inner">
+      <p class="eyebrow">Legal</p>
+      <h1 class="h2">Terms of use</h1>
+      <p class="legal__updated mono">Applies to Serafim v{site.version} · {site.packageId}</p>
+
+      <p class="lead">
+        Keep it reasonable, keep it lawful, and keep other people welcome.
+        Here is what that means in practice.
+      </p>
+
+      <h2>Your account</h2>
+      <p>
+        You need one account per person. Pick a username that is not
+        misleading, keep control of the device you sign in from, and tell us
+        if you think someone else has used your account. You are responsible
+        for what is done through your account.
+      </p>
+
+      <h2>What you may not do</h2>
+      <ul>
+        <li>Harass, threaten or impersonate anyone.</li>
+        <li>Post illegal content, or content you do not have the right to share.</li>
+        <li>Spam groups, or use the service to send bulk unsolicited messages.</li>
+        <li>
+          Probe, attack or disrupt the service, or try to get at accounts or
+          data that are not yours.
+        </li>
+        <li>
+          Use automated scripts to scrape profiles, harvest contact details or
+          send messages on other people's behalf.
+        </li>
+      </ul>
+
+      <h2>Your content</h2>
+      <p>
+        You keep the rights to the photos, messages and voice notes you send.
+        You give Serafim permission to deliver them to the people you send
+        them to, and to store your text messages so they can be shown to you
+        later. Chat photos and voice notes are not stored on our servers —
+        they are delivered directly and kept on the recipients' devices.
+      </p>
+
+      <h2>Groups</h2>
+      <p>
+        Group owners and admins set the rules for their rooms. If you are
+        removed from a group, that is the owner's decision and you accept it.
+        Everyone in a group is responsible for what is posted inside it.
+      </p>
+
+      <h2>Availability</h2>
+      <p>
+        The service is provided as-is, without warranty. We aim to keep it
+        running, but we do not promise that it will never be unavailable or
+        that every message will always arrive. Where the app offers a
+        mandatory update, that update takes priority so the app stays working.
+      </p>
+
+      <h2>Ending it</h2>
+      <p>
+        You can delete your account at any time, and we may suspend an
+        account that breaks these terms. Deleting your account removes your
+        profile, relationships and stored messages.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If these terms change, the new version will be published here and
+        announced in the official SERAFIM chat inside the app.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions: <a href="mailto:hello@serafim.app">hello@serafim.app</a>,
+        or open an issue on{' '}
+        <a href={site.repo} target="_blank" rel="noopener">GitHub</a>.
+      </p>
+
+      <p class="legal__back">
+        <a class="btn btn--ghost" href="/">← Back to the homepage</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal__inner {
+    max-width: 720px;
+  }
+
+  .legal__updated {
+    display: block;
+    margin-top: 0.75rem;
+  }
+
+  .legal :global(h2) {
+    margin: 2.5rem 0 0.75rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .legal :global(ul) {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .legal :global(li) {
+    margin-bottom: 0.6rem;
+    font-size: 0.9375rem;
+    color: var(--text-dim);
+  }
+
+  .legal :global(p) {
+    font-size: 0.9375rem;
+    color: var(--text-dim);
+  }
+
+  .legal__back {
+    margin-top: 3rem;
+  }
+</style>

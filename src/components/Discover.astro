@@ -1,0 +1,202 @@
+---
+import Icon from './Icon.astro';
+import { interestCategories, interestCount } from '../site';
+---
+
+<section class="section section--alt" id="discover">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Discover</p>
+        <h2 class="h2">Find people through what you have in common.</h2>
+        <p class="lead">
+          Pick your interests during setup and Serafim ranks people for you by
+          what you both care about. Not by who follows whom, and not by who
+          paid for the ad.
+        </p>
+
+        <ul class="list-check">
+          <li>
+            <strong>{interestCount} interests</strong> across {interestCategories.length}{' '}
+            categories, plus up to 30 of your own on any profile.
+          </li>
+          <li>
+            <strong>Shared interests are highlighted</strong> on every public
+            profile, so you know why Serafim suggested someone.
+          </li>
+          <li>
+            <strong>Friends and follows are separate.</strong> Be friends when
+            you talk, follow when you watch — the app never conflates the two.
+          </li>
+        </ul>
+
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="/#download">
+            <Icon name="search" size={16} />
+            Start discovering
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="phone phone--discover">
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span class="phone__bar-dot phone__bar-dot--teal"></span>
+              <span class="phone__bar-title">Discover</span>
+              <span class="phone__bar-spacer"></span>
+            </div>
+
+            <div class="phone__body">
+              <div class="phone__search">
+                <Icon name="search" size={12} />
+                <span>Search by username or UID</span>
+              </div>
+
+              <p class="phone__label">Suggested for you</p>
+
+              <div class="row">
+                <span class="avatar avatar--teal">RB</span>
+                <span class="row__main">
+                  <span class="row__name">Rita Banda</span>
+                  <span class="row__meta">Cycling · Afrobeats · Hiking</span>
+                  <span class="row__tags">
+                    <span class="tag tag--on">Cycling</span>
+                    <span class="tag tag--on">Afrobeats</span>
+                  </span>
+                </span>
+              </div>
+
+              <div class="row">
+                <span class="avatar">SM</span>
+                <span class="row__main">
+                  <span class="row__name">Steve Mwale</span>
+                  <span class="row__meta">Programming · 3D printing</span>
+                  <span class="row__tags">
+                    <span class="tag tag--on">3D printing</span>
+                  </span>
+                </span>
+              </div>
+
+              <div class="row">
+                <span class="avatar avatar--rust">PN</span>
+                <span class="row__main">
+                  <span class="row__name">Patience Ncube</span>
+                  <span class="row__meta">Baking · Street food</span>
+                  <span class="row__tags">
+                    <span class="tag tag--on">Baking</span>
+                  </span>
+                </span>
+              </div>
+
+              <p class="phone__label phone__label--spaced">Friend requests</p>
+
+              <div class="row">
+                <span class="avatar avatar--teal">LN</span>
+                <span class="row__main">
+                  <span class="row__name">Lindiwe Ncube</span>
+                  <span class="row__meta">Wants to be friends</span>
+                </span>
+                <span class="row__actions">
+                  <span class="tick">✓</span>
+                  <span class="cross">✕</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="phone__nav">
+              <span>Chats</span>
+              <span class="is-on">Discover</span>
+              <span>Profile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="interests reveal">
+      {
+        interestCategories.map((cat) => (
+          <div class="interest">
+            <h4>{cat.name}</h4>
+            <ul>
+              {cat.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="interests__note mono">
+      The catalog shown in the app · pick up to 30 · or add your own
+    </p>
+  </div>
+</section>
+
+<style>
+  .phone--discover {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .phone__bar-dot--teal {
+    background: var(--teal);
+  }
+
+  .phone__label {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-pale);
+  }
+
+  .phone__label--spaced {
+    margin-top: 0.9rem;
+  }
+
+  .row__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 0.3rem;
+  }
+
+  .row__actions {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+
+  .tick,
+  .cross {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--line);
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .tick {
+    color: var(--teal-pale);
+  }
+
+  .cross {
+    color: var(--rust-pale);
+  }
+
+  .interests {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .interests__note {
+    margin: 0.9rem 0 0;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Screens from '../components/Screens.astro';
+import Discover from '../components/Discover.astro';
+import Privacy from '../components/Privacy.astro';
+import Network from '../components/Network.astro';
+import Free from '../components/Free.astro';
+import Download from '../components/Download.astro';
+import Faq from '../components/Faq.astro';
+import { site } from '../site';
+
+const strip = [
+  'No ads',
+  'No subscription',
+  'Media stays on your device',
+  'Updates install in-app',
+  '32-bit phones supported',
+  'Real-time delivery receipts',
+];
+---
+
+<Base>
+  <Hero />
+
+  <div class="strip" role="list">
+    {
+      strip.map((item) => (
+        <span class="strip__item" role="listitem">
+          {item}
+        </span>
+      ))
+    }
+  </div>
+
+  <Features />
+  <Screens />
+  <Discover />
+  <Privacy />
+  <Network />
+  <Free />
+  <Download />
+  <Faq />
+
+  <section class="section closing">
+    <div class="wrap closing__inner">
+      <p class="eyebrow">{site.author}</p>
+      <h2 class="h2">Say hello.</h2>
+      <p class="lead">
+        Serafim is built by Binary Forge, and it is free for everyone who
+        installs it. Get the APK, set a username, pick a few interests, and
+        start talking.
+      </p>
+      <div class="btn-row closing__actions">
+        <a class="btn btn--primary btn--lg" href={site.releases} target="_blank" rel="noopener">
+          Get the app
+        </a>
+        <a class="btn btn--ghost btn--lg" href={site.repo} target="_blank" rel="noopener">
+          Star on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .closing {
+    text-align: center;
+    border-top: var(--bw) solid var(--line);
+    background:
+      radial-gradient(
+        ellipse 60% 90% at 50% 0%,
+        color-mix(in srgb, var(--primary) 16%, transparent),
+        transparent 70%
+      ),
+      var(--paper);
+  }
+
+  .closing__inner {
+    max-width: 620px;
+  }
+
+  .closing .lead {
+    margin-inline: auto;
+  }
+
+  .closing__actions {
+    justify-content: center;
+  }
+</style>

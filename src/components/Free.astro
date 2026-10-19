@@ -1,0 +1,104 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="get-app">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Price</p>
+        <h2 class="h2">Everything is free. Actually free.</h2>
+        <p class="lead">
+          There is no premium tier, no subscription, no ad SDK, and no paid
+          placement in Discover. Every feature on this page is on every
+          account, and nothing about you is sold.
+        </p>
+
+        <ul class="list-check">
+          <li>
+            <strong>No subscription.</strong> No monthly plan, no pro tier, no
+            trial that quietly becomes a charge.
+          </li>
+          <li>
+            <strong>No ads, anywhere.</strong> Not in the chat list, not in
+            Discover, not as a banner.
+          </li>
+          <li>
+            <strong>No paid ranking.</strong> Suggestions in Discover are
+            ordered by shared interests, never by who paid.
+          </li>
+          <li>
+            <strong>No dark patterns.</strong> Retention and read-receipt
+            settings are plain switches, and they stay where you put them.
+          </li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <table class="table">
+          <caption>Serafim, compared to a typical messenger</caption>
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">Serafim</th>
+              <th scope="col">Typical app</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cost</td>
+              <td><span class="yes">Free, no tier</span></td>
+              <td class="no">Subscription or ads</td>
+            </tr>
+            <tr>
+              <td>Advertising</td>
+              <td><span class="yes">None</span></td>
+              <td class="no">Banners and sponsored chats</td>
+            </tr>
+            <tr>
+              <td>Discovery order</td>
+              <td><span class="yes">Shared interests</span></td>
+              <td class="no">Ad budget</td>
+            </tr>
+            <tr>
+              <td>Photos &amp; voice notes</td>
+              <td><span class="yes">Stay on devices</span></td>
+              <td class="no">Uploaded to servers</td>
+            </tr>
+            <tr>
+              <td>Profile lock</td>
+              <td><span class="yes">Built in</span></td>
+              <td class="no">Rare or partial</td>
+            </tr>
+            <tr>
+              <td>32-bit phones</td>
+              <td><span class="yes">Supported</span></td>
+              <td class="no">Often dropped</td>
+            </tr>
+            <tr>
+              <td>Updates</td>
+              <td><span class="yes">In-app, checksum verified</span></td>
+              <td class="no">Store or nothing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .table {
+    font-size: 0.875rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .table td:first-child {
+    font-weight: 500;
+    color: var(--text-dim);
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../site';
+
+const platforms = [
+  { name: 'Android 7.0 and up', status: 'Available now', note: 'Signed APK · 32-bit and 64-bit', ok: true },
+  { name: 'iOS', status: 'In development', note: 'Push notifications and sign-in still to ship', ok: false },
+  { name: 'Web', status: 'In development', note: 'Scaffolded and building', ok: false },
+  { name: 'Desktop', status: 'In development', note: 'Linux, macOS and Windows scaffolds', ok: false },
+];
+---
+
+<section class="section section--alt" id="download">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">Get the app</p>
+      <h2 class="h2">Download once. It keeps itself up to date.</h2>
+      <p class="lead">
+        Serafim ships as a signed Android APK from its own release page — no
+        store account, no waiting for a review queue, and updates that install
+        from inside the app.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div>
+          <h3>Download the APK</h3>
+          <p>
+            Open the releases page and grab the latest build. It is a single
+            file that covers both 32-bit and 64-bit phones, so there is no
+            wrong download.
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <h3>Allow the install</h3>
+          <p>
+            Android will ask whether this app may install packages. Say yes.
+            Every release is signed with the same key, so a new version
+            replaces the old one instead of sitting next to it.
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <h3>Sign in and make it yours</h3>
+          <p>
+            Continue with Google, choose a display name and a username, then
+            pick a few interests. Serafim uses them to sort Discover before
+            you send your first message.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="download__cta reveal">
+      <a class="btn btn--primary btn--lg" href={site.releases} target="_blank" rel="noopener">
+        <Icon name="download" size={18} />
+        Download v{site.version}
+      </a>
+      <a class="btn btn--ghost btn--lg" href={site.repo} target="_blank" rel="noopener">
+        <Icon name="github" size={18} />
+        View the source
+      </a>
+      <p class="btn-note">
+        {site.packageId} · Signed with a stable release key · Updated from
+        inside the app
+      </p>
+    </div>
+
+    <div class="platforms reveal">
+      <p class="platforms__label">Where Serafim runs</p>
+      <ul class="platforms__list">
+        {
+          platforms.map((p) => (
+            <li class="platform">
+              <span class="platform__name">{p.name}</span>
+              <span class="platform__status">
+                {p.ok ? <span class="chip chip--teal">{p.status}</span> : <span class="chip">{p.status}</span>}
+              </span>
+              <span class="platform__note">{p.note}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  .download__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .download__cta .btn-note {
+    flex-basis: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .platforms {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .platforms__label {
+    margin: 0 0 0.9rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-pale);
+  }
+
+  .platforms__list {
+    display: grid;
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: var(--line);
+    border: var(--bw) solid var(--line);
+    box-shadow: var(--shadow);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .platform {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--paper-alt);
+  }
+
+  .platform__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .platform__status .chip {
+    align-self: flex-start;
+  }
+
+  .platform__note {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+</style>

@@ -1,0 +1,314 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../site';
+---
+
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <a class="release-pill" href={site.releases} target="_blank" rel="noopener">
+        <span class="release-pill__tag">v{site.version}</span>
+        <span class="release-pill__text">
+          Out now — installs on 32-bit and 64-bit phones
+        </span>
+        <Icon name="arrow" size={14} />
+      </a>
+
+      <h1 class="display">
+        Connect across<br />
+        <span class="accent">every sector.</span>
+      </h1>
+
+      <p class="lead">
+        Serafim is a free messaging app with real-time chat, group rooms with
+        rules, voice notes, stickers and link previews — plus a Discover tab
+        that finds people through what you actually care about.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={site.releases} target="_blank" rel="noopener">
+          <Icon name="android" size={18} />
+          Get the Android app
+        </a>
+        <a class="btn btn--ghost btn--lg" href="/#features">See what's inside</a>
+      </div>
+
+      <p class="btn-note">
+        v{site.version} · Signed APK · No Play Store, no account required to
+        download · Works on Android Go
+      </p>
+
+      <ul class="hero__chips">
+        <li class="chip chip--teal">No ads</li>
+        <li class="chip chip--teal">No subscription</li>
+        <li class="chip">Media stays on your phone</li>
+        <li class="chip">Updates install in-app</li>
+      </ul>
+    </div>
+
+    <div class="hero__art">
+      <div class="hero__phone">
+        <div class="phone phone--hero">
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span class="phone__bar-dot"></span>
+              <span class="phone__bar-title">Chats</span>
+              <span class="phone__bar-spacer"></span>
+              <span class="phone__bar-icon"><Icon name="bell" size={13} /></span>
+            </div>
+
+            <div class="phone__body">
+              <div class="phone__search">
+                <Icon name="search" size={12} />
+                <span>Search conversations</span>
+              </div>
+
+              <div class="row">
+                <span class="avatar avatar--rust">S</span>
+                <span class="row__main">
+                  <span class="row__name">Serafim Official</span>
+                  <span class="row__meta">New version 1.0.2 is ready to install</span>
+                </span>
+                <span class="badge">Official</span>
+              </div>
+
+              <div class="row">
+                <span class="avatar">TM</span>
+                <span class="row__main">
+                  <span class="row__name">Thandi Moyo</span>
+                  <span class="row__meta">Sounds good — see you at 6</span>
+                </span>
+                <span class="row__time">2m</span>
+              </div>
+
+              <div class="row">
+                <span class="avatar avatar--teal">KA</span>
+                <span class="row__main">
+                  <span class="row__name">Kwame Asante</span>
+                  <span class="row__meta">Sent a sticker</span>
+                </span>
+                <span class="row__time">14m</span>
+              </div>
+
+              <div class="row">
+                <span class="avatar">NC</span>
+                <span class="row__main">
+                  <span class="row__name">Netball Club</span>
+                  <span class="row__meta">Group · 14 members</span>
+                </span>
+                <span class="row__time">1h</span>
+              </div>
+
+              <div class="row">
+                <span class="avatar avatar--teal">AC</span>
+                <span class="row__main">
+                  <span class="row__name">Ama Chisenga</span>
+                  <span class="row__meta">Sent a photo</span>
+                </span>
+                <span class="row__time">3h</span>
+              </div>
+            </div>
+
+            <div class="phone__nav">
+              <span class="is-on">Chats</span>
+              <span>Discover</span>
+              <span>Profile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__float hero__float--a">
+          <span class="hero__float-icon"><Icon name="mic" size={15} /></span>
+          <span>
+            <strong>Voice note</strong>
+            <em>Slide up to lock</em>
+          </span>
+        </div>
+
+        <div class="hero__float hero__float--b">
+          <span class="hero__float-icon hero__float-icon--teal">
+            <Icon name="shield" size={15} />
+          </span>
+          <span>
+            <strong>Photo sent</strong>
+            <em>Stays on the device</em>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(3.5rem, 8vw, 7rem);
+    overflow: hidden;
+  }
+
+  /* faint tiled grid in the background */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.16;
+    mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 70% at 70% 30%,
+      #000 20%,
+      transparent 75%
+    );
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+    align-items: center;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+
+  /* release pill */
+  .release-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+    background: var(--paper-alt);
+    border: var(--bw) solid var(--line);
+    font-size: 12.5px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .release-pill:hover {
+    text-decoration: none;
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .release-pill__tag {
+    padding: 0.2rem 0.5rem;
+    background: var(--primary);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #fff;
+  }
+
+  .release-pill svg {
+    color: var(--primary-pale);
+  }
+
+  .hero__copy h1 {
+    margin: 0;
+  }
+
+  .hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* art */
+
+  .hero__art {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* the floats are anchored to the phone, not to the column */
+  .hero__phone {
+    position: relative;
+    width: 320px;
+    max-width: 100%;
+  }
+
+  .phone--hero {
+    max-width: 320px;
+    transform: rotate(-2deg);
+  }
+
+  .hero__float {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.85rem;
+    background: var(--paper-alt);
+    border: var(--bw) solid var(--line);
+    box-shadow: var(--shadow);
+    font-size: 12px;
+  }
+
+  .hero__float strong {
+    display: block;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .hero__float em {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+  }
+
+  .hero__float--a {
+    top: -36px;
+    left: -42px;
+  }
+
+  .hero__float--b {
+    bottom: -40px;
+    right: -42px;
+  }
+
+  .hero__float-icon {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    background: color-mix(in srgb, var(--primary) 22%, transparent);
+    border: 1px solid var(--line);
+    color: var(--primary-pale);
+  }
+
+  .hero__float-icon--teal {
+    background: color-mix(in srgb, var(--teal) 26%, transparent);
+    color: var(--teal-pale);
+  }
+
+  @media (max-width: 900px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__art {
+      order: -1;
+    }
+
+    .phone--hero {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero__float {
+      display: none;
+    }
+  }
+</style>

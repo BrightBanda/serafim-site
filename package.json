@@ -1,0 +1,16 @@
+{
+  "name": "serafim-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for Serafim — a free, real-time messaging and social discovery app by Binary Forge.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.4.0"
+  }
+}

@@ -1,0 +1,90 @@
+---
+import { site } from '../site';
+
+const faqs = [
+  {
+    q: 'What is Serafim, exactly?',
+    a: 'A free messenger with real-time one-to-one chat, group rooms with rules and roles, voice notes, stickers, link previews and chat backgrounds — plus a Discover tab that introduces you to people through the interests you share. It is built by Binary Forge and runs on Android today.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: 'Nothing. There is no subscription, no premium tier and no advertising anywhere in the app. Every account gets the same features, and nothing about you is sold or used to target ads.',
+  },
+  {
+    q: 'Where do I download it?',
+    a: 'From the project releases page on GitHub. Serafim is distributed as a signed APK rather than through the Play Store, so there is no store account to create and no review queue to wait in.',
+  },
+  {
+    q: 'How do I install it?',
+    a: 'Download the APK, then open it. Android will ask whether this app may install packages — allow it. Every release is signed with the same key, so later versions install over your existing copy instead of sitting beside it.',
+  },
+  {
+    q: 'How do updates work?',
+    a: 'The app checks for a new version several times a day, downloads it, verifies the SHA-256 checksum, and then hands you the Android installer. New versions are also announced in the official SERAFIM chat. A critical update is marked mandatory and will block the app until it is installed.',
+  },
+  {
+    q: 'Will it run on my phone?',
+    a: 'Serafim supports Android 7.0 and up, and a single APK covers both 32-bit and 64-bit phones — including many itel and Android Go devices that other apps no longer support.',
+  },
+  {
+    q: 'Are my photos and voice notes uploaded to a server?',
+    a: 'No. Images are resized on your phone before they are sent, then delivered to the people in the conversation. They are never stored on our servers, and they live on the devices of the people you sent them to.',
+  },
+  {
+    q: 'What happens to my password?',
+    a: 'It is handed straight to the identity service that runs sign-in — it never passes through Serafim servers, which only ever see a session token. The refresh token is kept in encrypted storage on your phone.',
+  },
+  {
+    q: 'Can I lock my profile?',
+    a: 'Yes. Locking your profile hides your friends, followers and following from anyone who is not already a friend. You can also decide whether strangers may send friend requests, and whether anyone, only friends, or nobody can add you to a group.',
+  },
+  {
+    q: 'Can I use it on an iPhone?',
+    a: 'Not yet. The iOS build is in development, along with the web and desktop builds. Android is the only released platform right now, and it is the one that gets new features first.',
+  },
+  {
+    q: 'How do I report a problem?',
+    a: 'Open an issue on the project repository. Bug reports with the device model, Android version and the app version you are running are the fastest ones to act on.',
+  },
+];
+---
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Questions</p>
+        <h2 class="h2">The things people ask first.</h2>
+        <p class="lead">
+          Still stuck? Ask on GitHub — issues are read and answered by the
+          people who build the app.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href={`${site.repo}/issues`} target="_blank" rel="noopener">
+            Ask a question
+          </a>
+        </div>
+      </div>
+
+      <div class="faq reveal">
+        {
+          faqs.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <div class="faq__body">
+                <p>{f.a}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* the accordion is much taller than the intro, so top-align them */
+  .split {
+    align-items: start;
+  }
+</style>

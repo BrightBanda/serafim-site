@@ -1,0 +1,148 @@
+---
+import Icon from './Icon.astro';
+
+const features = [
+  {
+    icon: 'chat',
+    title: 'Real-time chat',
+    body: 'Messages travel over a live socket, not a poll loop. You can see exactly where each one is — sending, sent, delivered, read.',
+  },
+  {
+    icon: 'group',
+    title: 'Group rooms with rules',
+    body: 'Owners, admins and members. Write house rules, and decide whether anyone, only friends, or nobody can add you to a group.',
+  },
+  {
+    icon: 'mic',
+    title: 'Voice notes',
+    body: 'Hold to record, slide up to lock your phone, slide to cancel. Send it hands-free without interrupting the conversation.',
+  },
+  {
+    icon: 'sticker',
+    title: 'Stickers and GIFs',
+    body: 'A Doodle Gang pack of 28 hand-drawn stickers that cost nothing to send, plus GIFs pasted straight from your keyboard.',
+  },
+  {
+    icon: 'link',
+    title: 'Link previews',
+    body: 'Send a link and get a card with a title and preview you can tap. Links in messages open in the browser.',
+  },
+  {
+    icon: 'search',
+    title: 'Discover',
+    body: 'People ranked by the interests you share, so you find your crowd before you find their number. Search by username or UID.',
+  },
+  {
+    icon: 'image',
+    title: 'Chat backgrounds',
+    body: 'Doodle patterns, solid colours, gradients, or your own photo — set it for one chat or for every chat at once.',
+  },
+  {
+    icon: 'bell',
+    title: 'Notifications',
+    body: 'Push notifications and in-app banners, with previews, sound, and a test button so you know it works before you need it.',
+  },
+  {
+    icon: 'download',
+    title: 'Updates inside the app',
+    body: 'Serafim checks for a new version, verifies the download against its SHA-256, then hands you the installer. No store required.',
+  },
+];
+
+const also = [
+  'Swipe to reply',
+  'Edit a message',
+  'Delete for everyone',
+  'Read receipts',
+  'Message retention',
+  'Save images to gallery',
+  'Full-screen profile photos',
+  'Friends and follows, separate',
+  'Copyable UID',
+  'Data saver photo quality',
+  'Light and dark themes',
+  'Four text sizes',
+];
+---
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">What's inside</p>
+      <h2 class="h2">Everything a chat app should do,<br />and nothing it shouldn't.</h2>
+      <p class="lead">
+        Serafim is a focused messenger. The people you talk to, the groups you
+        belong to, and the people you have yet to meet — and it does all three
+        without handing your data to an advertiser.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      {
+        features.map((f) => (
+          <article class="card reveal">
+            <div class="card__icon">
+              <Icon name={f.icon} />
+            </div>
+            <h3 class="h4">{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="also reveal">
+      <h3 class="also__title">Also included</h3>
+      <ul class="also__list">
+        {also.map((item) => (
+          <li>
+            <Icon name="check" size={13} />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .also {
+    margin-top: 2.5rem;
+    padding: 1.75rem 1.5rem;
+    background: var(--paper-alt);
+    border: var(--bw) solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .also__title {
+    margin: 0 0 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-pale);
+  }
+
+  .also__list {
+    display: grid;
+    gap: 0.6rem 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .also__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+  }
+
+  .also__list svg {
+    flex: none;
+    color: var(--teal-pale);
+  }
+</style>

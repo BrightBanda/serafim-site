@@ -1,0 +1,90 @@
+---
+/**
+ * The Serafim mark — a white "S" built from three angular slabs, tilted up,
+ * on an indigo-violet rounded tile with a hard navy offset shadow.
+ *
+ * The geometry is transcribed one-to-one from the Flutter app
+ * (lib/src/utils/serafim_mark.dart), so this is the same logo as the
+ * launcher icon, sharp at any size, with no image request.
+ */
+interface Props {
+  size?: number;
+  /** Draw the rounded tile behind the S. */
+  tile?: boolean;
+  class?: string;
+}
+
+const { size = 32, tile = true, class: className = '' } = Astro.props;
+
+// Unique per instance so several marks can share a page without clashing ids.
+const uid = `serafim-tile-${Math.random().toString(36).slice(2, 9)}`;
+
+// Slabs on the 256 x 256 grid: top, spine, bottom.
+const slabs: [number, number][][] = [
+  [
+    [101.6, 61.38],
+    [197.38, 37.5],
+    [165.42, 90.68],
+    [69.65, 114.56],
+  ],
+  [
+    [69.65, 114.56],
+    [122.86, 101.29],
+    [181.35, 136.44],
+    [128.14, 149.71],
+  ],
+  [
+    [149.4, 189.62],
+    [53.62, 213.5],
+    [85.58, 160.32],
+    [181.35, 136.44],
+  ],
+];
+
+const points = (pts: [number, number][]) => pts.map(([x, y]) => `${x},${y}`).join(' ');
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 256 256"
+  class={className}
+  role="img"
+  aria-label="Serafim"
+>
+  <defs>
+    <linearGradient id={uid} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7B72E4"></stop>
+      <stop offset="1" stop-color="#4D44B6"></stop>
+    </linearGradient>
+  </defs>
+
+  {
+    tile && (
+      <g>
+        <rect x="3" y="3" width="250" height="250" rx="56" fill={`url(#${uid})`}></rect>
+        <rect
+          x="3"
+          y="3"
+          width="250"
+          height="250"
+          rx="56"
+          fill="none"
+          stroke="#221F55"
+          stroke-width="6"
+        ></rect>
+      </g>
+    )
+  }
+
+  {/* hard offset shadow */}
+  <g fill="#221F55" transform="translate(5,5)">
+    {slabs.map((s) => <polygon points={points(s)}></polygon>)}
+  </g>
+
+  {/* spine first so the top and bottom slabs overlap its ends cleanly */}
+  <polygon points={points(slabs[1])} fill="#DAD6FB"></polygon>
+  <polygon points={points(slabs[0])} fill="#FFFFFF"></polygon>
+  <polygon points={points(slabs[2])} fill="#BDB6F6"></polygon>
+</svg>

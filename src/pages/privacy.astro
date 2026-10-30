@@ -1,173 +1,161 @@
 ---
-import Base from '../layouts/Base.astro';
+import BaseLayout from '../layouts/Base.astro';
 import { site } from '../site';
 ---
 
-<Base
-  title={`Privacy policy — ${site.name}`}
-  description={`How ${site.name} handles your account, your messages and your photos.`}
+<BaseLayout
+  title="Serafim | Privacy Policy"
+  description="How the Serafim social app handles your personal data."
 >
-  <section class="section legal">
-    <div class="wrap legal__inner">
-      <p class="eyebrow">Legal</p>
-      <h1 class="h2">Privacy policy</h1>
-      <p class="legal__updated mono">Applies to Serafim v{site.version} · {site.packageId}</p>
+  <section class="section">
+    <div class="container legal">
+      <h1 class="h2">Privacy Policy</h1>
+      <p class="legal-meta">Last updated: October 25, 2026.</p>
 
-      <p class="lead">
-        This is a plain description of what the app does with your data,
-        written from the app's actual behaviour. It is short on purpose.
+      <p class="body-copy">
+        This Privacy Policy explains how the developer of Serafim ("the
+        Developer", "we", "us", "our") collects, uses, stores, shares and protects
+        your personal information when you use the Serafim Service. It should be
+        read together with the Terms of Service, which govern your use of the
+        app. We apply the data protection principles of Malawi's Data Protection
+        Act and similar laws, and GDPR-style principles where they apply to users
+        in the European Union or European Economic Area.
       </p>
 
-      <h2>What we store</h2>
+      <h2>Information we collect</h2>
+      <p class="body-copy">
+        We collect the following personal information when you use Serafim:
+      </p>
       <ul>
         <li>
-          <strong>Your account.</strong> The email address you sign in with,
-          your display name, username, bio, avatar, and the interests you
-          choose. Your email is only used to sign in and to recover access.
+          Account information: your Serafim user ID, the email address you
+          signed up with, and - when you sign in with Google - your Google
+          account identifiers and the profile details Google shares with us.
         </li>
         <li>
-          <strong>Your profile photo.</strong> Stored in a private storage
-          bucket that only you can write to, so nobody can overwrite your
-          picture.
+          Profile information: your display name, username, bio, profile photo,
+          interests, friend and follower relationships, and the privacy settings
+          you choose, such as who may send you friend requests or add you to
+          groups.
         </li>
         <li>
-          <strong>Your messages.</strong> Text messages, group membership,
-          friendships, follows and notifications are stored on Serafim's own
-          database so they can be delivered to other people and shown to you
-          on your next device.
+          Content you create: posts, comments, chat messages and media
+          attachments, reactions (sparks), and group information.
         </li>
         <li>
-          <strong>Your device token.</strong> A push notification token, so
-          Serafim can tell your phone about a new message. It is removed when
-          you sign out.
-        </li>
-        <li>
-          <strong>Your preferences.</strong> Theme, text size, chat
-          backgrounds, read receipts, privacy choices and message retention
-          settings, kept on your device.
+          Device and technical information: device identifiers, operating system
+          and version, app version, IP address, push notification tokens, and
+          diagnostics.
         </li>
       </ul>
-
-      <h2>What we do not store</h2>
-      <ul>
-        <li>
-          <strong>Chat photos and voice notes.</strong> These are never
-          uploaded to our servers. They are resized on your phone and then
-          delivered to the people in the conversation, who keep their own
-          copies. If a participant deletes a photo, it is removed from the
-          device where it happened.
-        </li>
-        <li>
-          <strong>Your password.</strong> Sign-in is handled by a third-party
-          identity service. Your password is sent directly to it and never
-          reaches Serafim servers, which only ever see a session token. The
-          refresh token is kept in encrypted storage on your device.
-        </li>
-        <li>
-          <strong>Your attention.</strong> There is no advertising SDK and no
-          analytics SDK in the app. We do not sell your data, and we do not
-          build advertising profiles.
-        </li>
-      </ul>
-
-      <h2>Who else is involved</h2>
-      <ul>
-        <li>
-          <strong>Supabase</strong> — sign-in, the primary database and
-          private file storage.
-        </li>
-        <li>
-          <strong>Cloudflare</strong> — the edge network that fronts the
-          API so the app stays reachable on restrictive mobile networks.
-        </li>
-        <li>
-          <strong>Google</strong> — sign-in, and push delivery for Android
-          notifications.
-        </li>
-      </ul>
-      <p>
-        Each of them processes data only to provide the service it is there
-        for. None of them receive your chat photos or voice notes, because
-        those never reach a server.
+      <p class="body-copy">
+        We do not knowingly collect precise GPS location or payment information.
       </p>
 
-      <h2>Your controls</h2>
-      <ul>
-        <li>Lock your profile to hide friends, followers and following.</li>
-        <li>Turn read receipts on or off.</li>
-        <li>Decide whether anyone, only friends, or nobody can add you to groups.</li>
-        <li>Choose whether strangers may send you friend requests.</li>
-        <li>Set how long messages are kept on your device.</li>
-        <li>Delete a message for yourself, or for everyone in the conversation.</li>
-        <li>Delete your account and everything attached to it.</li>
-      </ul>
-
-      <h2>Children</h2>
-      <p>
-        Serafim is not directed at children under 13, and we do not knowingly
-        collect information from them.
+      <h2>How we use your information</h2>
+      <p class="body-copy">
+        We use your information to create and authenticate your account, store and
+        deliver content and messages, operate feeds, circles, groups and chats,
+        send notifications, enforce our rules and keep the Service safe, and
+        understand how the Service is used so we can improve it.
       </p>
 
-      <h2>Changes</h2>
-      <p>
-        If this policy changes, the new version will be published here and
-        announced in the official SERAFIM chat inside the app.
+      <h2>Legal bases for our use</h2>
+      <p class="body-copy">
+        We process personal data on the basis of consent (for example when you
+        sign up and accept the Terms), the performance of a contract with you, our
+        legitimate interests in operating and securing the Service, and legal
+        obligations. We apply data protection principles - lawfulness and
+        legitimacy of processing, purpose limitation, data minimisation, accuracy,
+        storage limitation, integrity and confidentiality.
+      </p>
+
+      <h2>How we share information</h2>
+      <p class="body-copy">
+        We do not sell your personal information. We share it only with the service
+        providers that help us run the Service - including authentication, hosting,
+        storage, cloud and push notification providers - and with other users when
+        you share content with them, such as a post visible to your circles or a
+        message delivered to a friend. We may also disclose information where
+        required by law or to protect the rights and safety of people.
+      </p>
+
+      <h2>Retention and deletion</h2>
+      <p class="body-copy">
+        We keep your account information and content for as long as your account
+        is active and needed to provide the Service. You can delete individual
+        messages or posts from within the app; chat messages also have a per-device
+        retention setting (by default they are kept). Chat backups you save to
+        Google Drive are handled by Google. When you delete your account, we delete
+        or deactivate the associated personal data, subject to any retention
+        obligations under applicable law.
+      </p>
+
+      <h2>Security</h2>
+      <p class="body-copy">
+        We use reasonable technical and organisational measures - including
+        encryption in transit and access controls - to protect your information.
+        No method of transmission or storage is completely secure, and we cannot
+        guarantee absolute security.
+      </p>
+
+      <h2>Your rights</h2>
+      <p class="body-copy">
+        Depending on where you live, you may have rights to access, correct, delete,
+        export or object to the processing of your personal data, and to withdraw
+        consent. These rights may be provided directly by the data protection law
+        that applies to you - including the GDPR for users in the European Union
+        or European Economic Area, and Malawi's Data Protection Act. To exercise
+        them, contact the Developer through the Serafim GitHub repository. You
+        also have the right to lodge a complaint with the relevant data protection
+        authority.
+      </p>
+
+      <h2>Children's privacy</h2>
+      <p class="body-copy">
+        Serafim is not directed at children below the minimum age described in the
+        Terms of Service. We do not knowingly collect personal information from
+        children. If we learn that we have collected it, we will delete it.
+      </p>
+
+      <h2>International transfers</h2>
+      <p class="body-copy">
+        Your information may be processed in Malawi and by service providers that
+        may be located outside Malawi, including in other countries. Where data
+        crosses borders, we rely on appropriate safeguards.
+      </p>
+
+      <h2>Changes and contact</h2>
+      <p class="body-copy">
+        We may update this Privacy Policy. The current version is always available
+        in the app and is marked with a date. Your continued use of the Service
+        after a change takes effect means you accept the updated Policy. Questions
+        about this Policy can be sent to the Developer through the Serafim GitHub
+        repository.
       </p>
 
       <h2>Contact</h2>
-      <p>
-        Questions, requests, or corrections:{' '}
-        <a href="mailto:hello@serafim.app">hello@serafim.app</a>, or open an
-        issue on <a href={site.repo} target="_blank" rel="noopener">GitHub</a>.
-      </p>
-
-      <p class="legal__back">
-        <a class="btn btn--ghost" href="/">← Back to the homepage</a>
+      <p class="body-copy">
+        Contact the Developer through the
+        <a class="prose-link" href={site.repo}>Serafim GitHub repository</a>.
       </p>
     </div>
   </section>
-</Base>
+</BaseLayout>
 
 <style>
-  .legal__inner {
-    max-width: 720px;
+  .legal {
+    display: grid;
+    gap: 24px;
+    max-width: 70ch;
+    margin-inline: auto;
   }
-
-  .legal__updated {
-    display: block;
-    margin-top: 0.75rem;
+  /* Quiet section heads: the h1 carries the page scale. */
+  .legal h2 {
+    font-size: 1.125rem;
   }
-
-  .legal :global(h2) {
-    margin: 2.5rem 0 0.75rem;
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0;
-  }
-
-  .legal :global(ul) {
-    margin: 0;
-    padding-left: 1.1rem;
-  }
-
-  .legal :global(li) {
-    margin-bottom: 0.6rem;
+  .legal-meta {
+    color: var(--muted);
     font-size: 0.9375rem;
-    color: var(--text-dim);
-  }
-
-  .legal :global(li strong) {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .legal :global(p) {
-    font-size: 0.9375rem;
-    color: var(--text-dim);
-  }
-
-  .legal__back {
-    margin-top: 3rem;
   }
 </style>

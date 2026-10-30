@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Serafim — video scene</title>
+    <style>
+      /* ============================================================
+         Serafim social video scene.
+         Tokens are copied from the app: lib/src/utils/themes/app_colors.dart
+         and the shape rules in docs/admin-dashboard-README.md §11.
+         ============================================================ */
+
+      @font-face {
+        font-family: 'Bangers';
+        src: url('fonts/Bangers-Regular.ttf') format('truetype');
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('fonts/Inter-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('fonts/Inter-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('fonts/Inter-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('fonts/Inter-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('fonts/JetBrainsMono.ttf') format('truetype');
+        font-weight: 100 800;
+        font-display: block;
+      }
+
+      :root {
+        --ink: #0c0d11;
+        --paper: #15161c;
+        --paper-alt: #1a1b22;
+        --paper-raised: #20222a;
+        --line: #1c2440;
+        --line-soft: #33395c;
+        --primary: #5b7fd6;
+        --primary-deep: #3d5aad;
+        --primary-pale: #a9c0f0;
+        --rust: #b3562f;
+        --teal: #3f7d78;
+        --teal-pale: #7fb8b0;
+        --text: #d7d9e2;
+        --text-dim: #8a8d9c;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--ink);
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ---------------------------------------------------------- stage */
+
+      .stage {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        background:
+          radial-gradient(
+            ellipse 70% 45% at 50% 32%,
+            color-mix(in srgb, var(--primary) 14%, transparent),
+            transparent 70%
+          ),
+          var(--ink);
+      }
+
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--line-soft) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+        background-size: 90px 90px;
+        opacity: 0.14;
+        mask-image: radial-gradient(ellipse 85% 60% at 50% 35%, #000 10%, transparent 78%);
+        -webkit-mask-image: radial-gradient(
+          ellipse 85% 60% at 50% 35%,
+          #000 10%,
+          transparent 78%
+        );
+      }
+
+      /* --------------------------------------------------------- brand */
+
+      .brand {
+        position: absolute;
+        top: 92px;
+        left: 84px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .brand__word {
+        font-family: 'Bangers', sans-serif;
+        font-size: 44px;
+        letter-spacing: 0.05em;
+        color: var(--primary-pale);
+      }
+
+      /* --------------------------------------------------------- phone */
+
+      .phone {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        width: 620px;
+        margin-left: -310px;
+        padding: 16px;
+        background: var(--paper-raised);
+        border: 3px solid var(--line);
+        box-shadow: 14px 14px 0 var(--line);
+      }
+
+      .screen {
+        display: flex;
+        flex-direction: column;
+        height: 900px;
+        background: var(--paper);
+        border: 3px solid var(--line);
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 24px 26px;
+        background: var(--paper-alt);
+        border-bottom: 3px solid var(--line);
+      }
+
+      .topbar__back {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        color: var(--primary-pale);
+      }
+
+      .topbar__name {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .topbar__status {
+        margin-left: auto;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--teal-pale);
+      }
+
+      .thread {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 18px;
+        padding: 34px 30px;
+      }
+
+      .day {
+        align-self: center;
+        padding: 7px 16px;
+        background: var(--paper-raised);
+        border: 1px solid var(--line-soft);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+      }
+
+      .bubble {
+        max-width: 78%;
+        padding: 20px 24px;
+        border: 2px solid var(--line);
+        background: var(--paper-alt);
+        font-size: 26px;
+        line-height: 1.45;
+        color: var(--text);
+      }
+
+      .bubble--out {
+        align-self: flex-end;
+        background: color-mix(in srgb, var(--primary) 28%, var(--paper-alt));
+        color: #dbe4fb;
+      }
+
+      .bubble__meta {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 10px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 15px;
+        color: var(--text-dim);
+      }
+
+      .tick {
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--text-dim);
+      }
+
+      /* the read state recolours both ticks without touching their opacity */
+      .ticks {
+        display: inline-flex;
+        gap: 5px;
+      }
+
+      @keyframes to-read {
+        to {
+          color: var(--primary-pale);
+        }
+      }
+
+      /* typing indicator */
+      .typing {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        align-self: flex-start;
+        padding: 18px 22px;
+        border: 2px solid var(--line);
+        background: var(--paper-alt);
+      }
+
+      .typing i {
+        width: 11px;
+        height: 11px;
+        background: var(--text-dim);
+        border-radius: 50%;
+        animation: bounce 1.05s ease-in-out infinite;
+      }
+
+      .typing i:nth-child(2) {
+        animation-delay: 0.16s;
+      }
+      .typing i:nth-child(3) {
+        animation-delay: 0.32s;
+      }
+
+      @keyframes bounce {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.45;
+        }
+        30% {
+          transform: translateY(-11px);
+          opacity: 1;
+        }
+      }
+
+      .composer {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 24px;
+        background: var(--paper-alt);
+        border-top: 3px solid var(--line);
+      }
+
+      .composer__field {
+        flex: 1;
+        padding: 16px 20px;
+        border: 2px solid var(--line-soft);
+        font-size: 22px;
+        color: var(--text-dim);
+      }
+
+      .composer__btn {
+        display: grid;
+        place-items: center;
+        width: 58px;
+        height: 58px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+        border: 2px solid var(--line);
+        color: #fff;
+      }
+
+      /* -------------------------------------------------------- caption */
+
+      .caption {
+        position: absolute;
+        top: 1215px;
+        left: 84px;
+        right: 84px;
+      }
+
+      .caption__eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 21px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary-pale);
+      }
+
+      .caption__title {
+        margin-top: 14px;
+        font-family: 'Bangers', sans-serif;
+        font-size: 66px;
+        line-height: 1.06;
+        letter-spacing: 0.02em;
+        color: var(--text);
+      }
+
+      .caption__title em {
+        font-style: normal;
+        color: var(--primary-pale);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 34px;
+        padding: 18px 24px;
+        background: var(--paper-alt);
+        border: 3px solid var(--line);
+        box-shadow: 6px 6px 0 var(--line);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--text);
+        white-space: nowrap;
+      }
+
+      .badge svg {
+        color: var(--teal-pale);
+      }
+
+      /* ----------------------------------------------------- bottom bar */
+
+      .bottom {
+        position: absolute;
+        top: 1660px;
+        left: 84px;
+        right: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 34px;
+        border-top: 2px solid var(--line-soft);
+      }
+
+      .bottom__url {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--text-dim);
+      }
+
+      .bottom__cta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 28px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+        border: 3px solid var(--line);
+        box-shadow: 6px 6px 0 var(--line);
+        font-size: 23px;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      /* ==========================================================
+         Timeline. Every element animates from a defined start time;
+         the capture script seeks all animations to an exact time, so
+         the output is frame-accurate and reproducible.
+         ========================================================== */
+
+      .anim {
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      @keyframes in-up {
+        from {
+          opacity: 0;
+          transform: translateY(38px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes in-scale {
+        from {
+          opacity: 0;
+          transform: scale(0.9) translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      @keyframes in-left {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes in-right {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* -- beats -- */
+      .t-grid {
+        animation: fade-in 1.1s ease-out both;
+      }
+      .t-brand {
+        animation: in-left 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+      }
+      .t-phone {
+        animation: in-scale 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+      }
+      .t-day1 {
+        animation: fade-in 0.6s ease-out 1.2s both;
+      }
+      .t-msg1 {
+        animation: in-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
+      }
+      .t-msg2 {
+        animation: in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.9s both;
+      }
+      .t-day2 {
+        animation: fade-in 0.6s ease-out 2.5s both;
+      }
+      .t-msg3 {
+        animation: in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 2.9s both;
+      }
+      .t-msg4 {
+        animation: in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 3.6s both;
+      }
+      .t-typing {
+        animation: in-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 4.4s both,
+          fade-out 0.35s ease-in 6.2s both;
+      }
+      .t-out {
+        animation: in-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 6.5s both;
+      }
+      .t-tick1 {
+        animation: fade-in 0.25s ease-out 7.2s both;
+      }
+      .t-tick2 {
+        animation: fade-in 0.25s ease-out 7.6s both;
+      }
+      .t-read {
+        animation: to-read 0.4s ease-out 8s both;
+      }
+      .t-caption {
+        animation: in-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 7.6s both;
+      }
+      .t-badge {
+        animation: in-right 0.85s cubic-bezier(0.22, 1, 0.36, 1) 8.3s both;
+      }
+      .t-bottom {
+        animation: fade-in 0.7s ease-out 8.7s both;
+      }
+
+      @keyframes fade-out {
+        to {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stage">
+      <div class="grid anim t-grid"></div>
+
+      <!-- brand bar -->
+      <div class="brand anim t-brand">
+        <svg width="62" height="62" viewBox="0 0 256 256" aria-hidden="true">
+          <defs>
+            <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7B72E4" />
+              <stop offset="1" stop-color="#4D44B6" />
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="250" height="250" rx="56" fill="url(#tg)" />
+          <rect
+            x="3"
+            y="3"
+            width="250"
+            height="250"
+            rx="56"
+            fill="none"
+            stroke="#221F55"
+            stroke-width="6"></rect>
+          <g fill="#221F55" transform="translate(5,5)">
+            <polygon points="101.6,61.38 197.38,37.5 165.42,90.68 69.65,114.56"></polygon>
+            <polygon points="69.65,114.56 122.86,101.29 181.35,136.44 128.14,149.71"></polygon>
+            <polygon points="149.4,189.62 53.62,213.5 85.58,160.32 181.35,136.44"></polygon>
+          </g>
+          <polygon points="69.65,114.56 122.86,101.29 181.35,136.44 128.14,149.71" fill="#DAD6FB"></polygon>
+          <polygon points="101.6,61.38 197.38,37.5 165.42,90.68 69.65,114.56" fill="#FFFFFF"></polygon>
+          <polygon points="149.4,189.62 53.62,213.5 85.58,160.32 181.35,136.44" fill="#BDB6F6"></polygon>
+        </svg>
+        <span class="brand__word">SERAFIM</span>
+      </div>
+
+      <!-- phone -->
+      <div class="phone anim t-phone">
+        <div class="screen">
+          <div class="topbar">
+            <span class="topbar__back">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 17 4 12 9 7"></polyline>
+                <path d="M20 18v-2a4 4 0 0 0-4-4H4"></path>
+              </svg>
+            </span>
+            <span class="topbar__name">Thandi Moyo</span>
+            <span class="topbar__status">Online</span>
+          </div>
+
+          <div class="thread">
+            <span class="day anim t-day1">Yesterday</span>
+
+            <div class="bubble bubble--out anim t-msg1">Is it still team 2?</div>
+
+            <div class="bubble anim t-msg2">Yeah, team 2. Bring the blue bib.</div>
+
+            <span class="day anim t-day2">Today</span>
+
+            <div class="bubble anim t-msg3">Coach moved the match to 6pm</div>
+
+            <div class="bubble anim t-msg4">Are we still on for six?</div>
+
+            <div class="typing anim t-typing">
+              <i></i><i></i><i></i>
+            </div>
+
+            <div class="bubble bubble--out anim t-out">
+              Yes! Leaving in ten.
+              <span class="bubble__meta">
+                17:42
+                <span class="ticks anim t-read">
+                  <span class="tick anim t-tick1">✓</span>
+                  <span class="tick anim t-tick2">✓</span>
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="composer">
+            <span class="composer__field">Message</span>
+            <span class="composer__btn">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- caption -->
+      <div class="caption">
+        <div class="anim t-caption">
+          <p class="caption__eyebrow">Real-time messaging</p>
+          <p class="caption__title">It arrives<br /><em>the moment they send it.</em></p>
+        </div>
+
+        <div class="badge anim t-badge">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+          <span>Nothing leaves the phone</span>
+        </div>
+      </div>
+
+      <!-- bottom bar -->
+      <div class="bottom anim t-bottom">
+        <span class="bottom__url">serafim.app</span>
+        <span class="bottom__cta">
+          Get the app
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <script>
+      // The capture script calls this to move every animation to an exact
+      // time, so each rendered frame is deterministic.
+      window.seek = function (t) {
+        const animations = document.getAnimations();
+        for (const a of animations) {
+          a.pause();
+          a.currentTime = t * 1000;
+        }
+        // Let the style engine settle before the screenshot is taken.
+        return new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve)),
+        );
+      };
+
+      // Pause everything up front so nothing runs between seeks.
+      window.__ready = document.fonts.ready.then(() => {
+        for (const a of document.getAnimations()) a.pause();
+        return true;
+      });
+    </script>
+  </body>
+</html>

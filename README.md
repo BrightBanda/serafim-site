@@ -16,6 +16,19 @@ no runtime JavaScript beyond a theme toggle and a scroll reveal.
 | `npm run preview` | Serve the production build locally            |
 | `npx astro check` | Type-check the components (asks to install `@astrojs/check`) |
 
+## Social videos
+
+`video/` holds the code-driven 2D animations used for social media. Each
+clip is a static HTML scene rendered frame by frame in headless Chrome and
+encoded with ffmpeg — no video editor, and the output is deterministic.
+
+```bash
+cd video
+./build.sh chat          # renders out/chat.mp4 and out/chat.gif
+```
+
+See `video/README.md` for how the capture works and how to add a scene.
+
 ## Structure
 
 ```

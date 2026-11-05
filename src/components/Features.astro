@@ -1,67 +1,86 @@
 ---
 import Icon from './Icon.astro';
+import { site } from '../site';
 
-const features = [
+const highlights = [
   {
-    icon: 'chat',
-    title: 'Real-time chat',
-    body: 'Messages travel over a live socket, not a poll loop. You can see exactly where each one is — sending, sent, delivered, read.',
-  },
-  {
-    icon: 'group',
-    title: 'Group rooms with rules',
-    body: 'Owners, admins and members. Write house rules, and decide whether anyone, only friends, or nobody can add you to a group.',
-  },
-  {
-    icon: 'mic',
-    title: 'Voice notes',
-    body: 'Hold to record, slide up to lock your phone, slide to cancel. Send it hands-free without interrupting the conversation.',
+    icon: 'signal',
+    title: 'Echos',
+    body: "Up for a chat? Send an Echo with a short message and it reaches up to 30 people who share your interests — friends, new people, or both. They get a notification, and one tap starts the chat. Echos last 30 minutes, and you can switch them off.",
   },
   {
     icon: 'sticker',
-    title: 'Stickers and GIFs',
-    body: 'A Doodle Gang pack of 28 hand-drawn stickers that cost nothing to send, plus GIFs pasted straight from your keyboard.',
+    title: 'Draw Together',
+    body: 'Open a shared canvas with a friend and doodle at the same time. Every stroke shows up on both phones as you draw.',
   },
   {
-    icon: 'link',
-    title: 'Link previews',
-    body: 'Send a link and get a card with a title and preview you can tap. Links in messages open in the browser.',
+    icon: 'heart',
+    title: 'Reactions and nicknames',
+    body: 'Hold a message to react with a thumbs up, a laugh, a celebration, anger, wow or cooked. Give friends nicknames, and see what they call you.',
+  },
+];
+
+const features = [
+  {
+    icon: 'star',
+    title: 'Feed and posts',
+    body: 'Share posts with a title, photos and words. Your feed shows what you will like most first, with a Latest tab when you just want what is new. Edit a post any time.',
+  },
+  {
+    icon: 'group',
+    title: 'Circles',
+    body: 'Communities around the things you love. Invite friends, add members, and keep things tidy with the circle settings.',
+  },
+  {
+    icon: 'chat',
+    title: 'Chats and groups',
+    body: 'See when a message is sent, delivered and read. Reply, edit, delete for everyone, and run groups with owners, admins and house rules.',
+  },
+  {
+    icon: 'mic',
+    title: 'Voice, video and music',
+    body: 'Hold to record a voice note, slide up to keep recording hands-free. Send videos and audio files, and play them right in the chat.',
+  },
+  {
+    icon: 'gift',
+    title: 'Stickers and GIFs',
+    body: 'A hand-drawn Doodle Gang pack, GIFs from your keyboard, and your own sticker collections to keep the good ones close.',
   },
   {
     icon: 'search',
     title: 'Discover',
-    body: 'People ranked by the interests you share, so you find your crowd before you find their number. Search by username or UID.',
-  },
-  {
-    icon: 'image',
-    title: 'Chat backgrounds',
-    body: 'Doodle patterns, solid colours, gradients, or your own photo — set it for one chat or for every chat at once.',
+    body: 'Meet people through the interests you share, and find friends by their username.',
   },
   {
     icon: 'bell',
-    title: 'Notifications',
-    body: 'Push notifications and in-app banners, with previews, sound, and a test button so you know it works before you need it.',
+    title: 'Notifications you can answer',
+    body: 'Reply straight from the notification without opening the app. Every message stays in the list, and calm in-app sounds let you know without making you jump. Pick your own sounds, too.',
   },
   {
-    icon: 'download',
-    title: 'Updates inside the app',
-    body: 'Serafim checks for a new version, verifies the download against its SHA-256, then hands you the installer. No store required.',
+    icon: 'image',
+    title: 'Make it yours',
+    body: 'Chat backgrounds from doodles, colours, gradients or your own photo. Light and dark themes, four text sizes, and a profile picture you can crop just right.',
+  },
+  {
+    icon: 'shield',
+    title: 'Backed up, always',
+    body: 'Your chats back up to your own Google Drive automatically, and come back when you change phones.',
   },
 ];
 
 const also = [
+  'Halo: show you are free to chat',
+  'Wings: your close friends',
+  'Sparks and comments',
+  'Share posts into chats',
+  'Report posts and messages',
   'Swipe to reply',
-  'Edit a message',
-  'Delete for everyone',
-  'Read receipts',
-  'Message retention',
+  'Link previews',
   'Save images to gallery',
-  'Full-screen profile photos',
-  'Friends and follows, separate',
-  'Copyable UID',
-  'Data saver photo quality',
-  'Light and dark themes',
-  'Four text sizes',
+  'Lock your profile',
+  'Official SERAFIM chat',
+  'Back up before you update',
+  'Delete your account any time',
 ];
 ---
 
@@ -69,12 +88,27 @@ const also = [
   <div class="wrap">
     <div class="section-head section-head--center">
       <p class="eyebrow">What's inside</p>
-      <h2 class="h2">Everything a chat app should do,<br />and nothing it shouldn't.</h2>
+      <h2 class="h2">Your friends, your circles,<br />and people you have yet to meet.</h2>
       <p class="lead">
-        Serafim is a focused messenger. The people you talk to, the groups you
-        belong to, and the people you have yet to meet — and it does all three
-        without handing your data to an advertiser.
+        Chat with the people you know, share with the communities you belong
+        to, and find new people who love what you love — all in one free app,
+        with no ads.
       </p>
+    </div>
+
+    <p class="new-label">New in {site.version}</p>
+    <div class="grid grid--3 new-grid">
+      {
+        highlights.map((f) => (
+          <article class="card card--new reveal">
+            <div class="card__icon">
+              <Icon name={f.icon} />
+            </div>
+            <h3 class="h4">{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))
+      }
     </div>
 
     <div class="grid grid--3">
@@ -106,6 +140,31 @@ const also = [
 </section>
 
 <style>
+  .new-label {
+    margin: 0 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-pale);
+  }
+
+  .new-grid {
+    margin-bottom: 1.5rem;
+  }
+
+  .card--new {
+    border-color: var(--primary);
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--primary) 16%, transparent),
+        transparent 65%
+      ),
+      var(--paper-alt);
+  }
+
   .also {
     margin-top: 2.5rem;
     padding: 1.75rem 1.5rem;

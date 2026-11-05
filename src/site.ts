@@ -8,13 +8,16 @@ export const site = {
   url: 'https://serafim.app',
   repo: 'https://github.com/BrightBanda/serafim',
   releases: 'https://github.com/BrightBanda/serafim/releases/latest',
-  version: '1.0.2',
-  build: '3',
+  /** Where people get the app. */
+  apkpure: 'https://apkpure.com/p/com.binaryforge.serafim',
+  version: '1.1.0',
+  build: '4',
   packageId: 'com.binaryforge.serafim',
-  author: 'Binary Forge',
+  author: 'Bright Banda',
+  credit: '@HAUTEK | BRIGHTBANDA',
   tagline: 'Connect across every sector.',
   description:
-    'Serafim is a free real-time messaging app with group chats, voice notes, stickers, link previews, and a Discover tab that finds people through shared interests. Your photos and voice notes never leave your phone.',
+    'Serafim is a free chat and social app: chats with reactions, voice notes and stickers, a feed of posts and Circles, Echos that find people up for a chat, and Draw Together with friends. No ads, no subscription.',
 } as const;
 
 /**

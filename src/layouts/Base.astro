@@ -115,7 +115,7 @@ const nav = [
             <span class="icon-btn__moon"><Icon name="moon" size={17} /></span>
           </button>
 
-          <a class="btn btn--primary btn--sm" href={site.releases} target="_blank" rel="noopener">
+          <a class="btn btn--primary btn--sm" href={site.apkpure} target="_blank" rel="noopener">
             Get the app
           </a>
 
@@ -160,8 +160,8 @@ const nav = [
             </a>
             <p class="footer__tag">{site.tagline}</p>
             <p class="footer__blurb">
-              A free, real-time messaging and social app built by Binary Forge.
-              Android today — iOS and web on the way.
+              A free chat and social app for meeting people through what you
+              love. On Android today.
             </p>
           </div>
 
@@ -177,7 +177,7 @@ const nav = [
           <div class="footer__col">
             <h4 class="footer__title">Project</h4>
             <a href={site.repo} target="_blank" rel="noopener">Source code</a>
-            <a href={site.releases} target="_blank" rel="noopener">Releases</a>
+            <a href={site.apkpure} target="_blank" rel="noopener">Get it on APKPure</a>
             <a href="/privacy">Privacy policy</a>
             <a href="/terms">Terms of use</a>
           </div>
@@ -192,9 +192,9 @@ const nav = [
 
         <div class="footer__base">
           <p class="mono">
-            v{site.version} · {site.packageId} · Made by {site.author}
+            {site.credit}
           </p>
-          <p class="mono">© {new Date().getFullYear()} {site.author}</p>
+          <p class="mono">© {new Date().getFullYear()} {site.name} · v{site.version}</p>
         </div>
       </div>
     </footer>

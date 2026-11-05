@@ -7,27 +7,29 @@ import Icon from './Icon.astro';
     <div class="split">
       <div class="reveal">
         <p class="eyebrow">Privacy</p>
-        <h2 class="h2">Your conversations stay close to home.</h2>
+        <h2 class="h2">You decide who reaches you.</h2>
         <p class="lead">
-          Most messengers upload your photos and voice notes to a server so
-          everyone in the thread can fetch them. Serafim doesn't. When you send
-          a picture, it is resized on your phone and then delivered to the
-          people in the conversation — and nowhere else.
+          Serafim is built for meeting people, so it gives you plain switches
+          for who can find you, message you and add you — and they stay where
+          you put them.
         </p>
 
         <ul class="list-check">
           <li>
-            <strong>Photos and voice notes never touch our storage.</strong> They
-            live on the phones of the people in the conversation.
+            <strong>No ads, and nothing about you is sold.</strong> Not now,
+            not ever.
           </li>
           <li>
-            <strong>Your password never reaches our servers.</strong> Sign-in is
-            handled by a third-party identity service; we only ever see a
-            session token.
+            <strong>Echos are yours to turn off.</strong> Stop receiving them
+            with one switch, and nobody can send you more than a few a day.
           </li>
           <li>
-            <strong>No ad SDK, no analytics SDK, no data sold.</strong> The
-            app ships with none of them.
+            <strong>Report anything.</strong> Hold a message or open a post's
+            menu to report it, and we will take a look.
+          </li>
+          <li>
+            <strong>Your backups are in your own Google Drive.</strong> And you
+            can delete your account whenever you like.
           </li>
           <li>
             <strong>Your profile is yours to lock.</strong> Hide your friends,
@@ -72,12 +74,12 @@ import Icon from './Icon.astro';
           </div>
 
           <div class="setting">
-            <span class="setting__icon"><Icon name="download" size={16} /></span>
+            <span class="setting__icon"><Icon name="signal" size={16} /></span>
             <span class="setting__body">
-              <span class="setting__name">Keep messages for</span>
-              <span class="setting__desc">How long conversations stay on this phone</span>
+              <span class="setting__name">Receive Echos</span>
+              <span class="setting__desc">Let people who share your interests invite you to chat</span>
             </span>
-            <span class="select">30 days</span>
+            <span class="toggle is-on"><span></span></span>
           </div>
 
           <div class="setting">
@@ -91,7 +93,7 @@ import Icon from './Icon.astro';
         </div>
 
         <p class="panel__note mono">
-          Screenshots taken from the app's own privacy screen
+          Straight from the app's privacy settings
         </p>
       </div>
     </div>

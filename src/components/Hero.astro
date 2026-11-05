@@ -6,10 +6,10 @@ import { site } from '../site';
 <section class="hero" id="top">
   <div class="wrap hero__inner">
     <div class="hero__copy">
-      <a class="release-pill" href={site.releases} target="_blank" rel="noopener">
+      <a class="release-pill" href="/#features" target="_blank" rel="noopener">
         <span class="release-pill__tag">v{site.version}</span>
         <span class="release-pill__text">
-          Out now — installs on 32-bit and 64-bit phones
+          New: Echos, reactions and Draw Together
         </span>
         <Icon name="arrow" size={14} />
       </a>
@@ -20,13 +20,13 @@ import { site } from '../site';
       </h1>
 
       <p class="lead">
-        Serafim is a free messaging app with real-time chat, group rooms with
-        rules, voice notes, stickers and link previews — plus a Discover tab
-        that finds people through what you actually care about.
+        Serafim is a free chat and social app. Talk with friends, share posts
+        in your Circles, send an Echo when you're up for a chat, and meet
+        people through what you actually care about.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn--primary btn--lg" href={site.releases} target="_blank" rel="noopener">
+        <a class="btn btn--primary btn--lg" href={site.apkpure} target="_blank" rel="noopener">
           <Icon name="android" size={18} />
           Get the Android app
         </a>
@@ -34,15 +34,13 @@ import { site } from '../site';
       </div>
 
       <p class="btn-note">
-        v{site.version} · Signed APK · No Play Store, no account required to
-        download · Works on Android Go
+        v{site.version} · Free on APKPure · Android 7.0 and up
       </p>
 
       <ul class="hero__chips">
         <li class="chip chip--teal">No ads</li>
         <li class="chip chip--teal">No subscription</li>
-        <li class="chip">Media stays on your phone</li>
-        <li class="chip">Updates install in-app</li>
+        <li class="chip">Backs up to your Google Drive</li>
       </ul>
     </div>
 
@@ -67,7 +65,7 @@ import { site } from '../site';
                 <span class="avatar avatar--rust">S</span>
                 <span class="row__main">
                   <span class="row__name">Serafim Official</span>
-                  <span class="row__meta">New version 1.0.2 is ready to install</span>
+                  <span class="row__meta">Version 1.1.0 is here: say hi to Echos</span>
                 </span>
                 <span class="badge">Official</span>
               </div>
@@ -85,7 +83,7 @@ import { site } from '../site';
                 <span class="avatar avatar--teal">KA</span>
                 <span class="row__main">
                   <span class="row__name">Kwame Asante</span>
-                  <span class="row__meta">Sent a sticker</span>
+                  <span class="row__meta">Reacted 😂 to your message</span>
                 </span>
                 <span class="row__time">14m</span>
               </div>
@@ -103,16 +101,17 @@ import { site } from '../site';
                 <span class="avatar avatar--teal">AC</span>
                 <span class="row__main">
                   <span class="row__name">Ama Chisenga</span>
-                  <span class="row__meta">Sent a photo</span>
+                  <span class="row__meta">Wants to draw together</span>
                 </span>
                 <span class="row__time">3h</span>
               </div>
             </div>
 
             <div class="phone__nav">
+              <span>Feed</span>
               <span class="is-on">Chats</span>
               <span>Discover</span>
-              <span>Profile</span>
+              <span>Circles</span>
             </div>
           </div>
         </div>
@@ -127,11 +126,11 @@ import { site } from '../site';
 
         <div class="hero__float hero__float--b">
           <span class="hero__float-icon hero__float-icon--teal">
-            <Icon name="shield" size={15} />
+            <Icon name="signal" size={15} />
           </span>
           <span>
-            <strong>Photo sent</strong>
-            <em>Stays on the device</em>
+            <strong>Echo sent</strong>
+            <em>30 people who share your interests</em>
           </span>
         </div>
       </div>

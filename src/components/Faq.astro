@@ -4,47 +4,47 @@ import { site } from '../site';
 const faqs = [
   {
     q: 'What is Serafim, exactly?',
-    a: 'A free messenger with real-time one-to-one chat, group rooms with rules and roles, voice notes, stickers, link previews and chat backgrounds — plus a Discover tab that introduces you to people through the interests you share. It is built by Binary Forge and runs on Android today.',
+    a: 'A free chat and social app. Chat one-to-one or in groups, share posts in your feed and Circles, send Echos when you are up for a chat, draw together with friends, and meet people through the interests you share.',
   },
   {
     q: 'How much does it cost?',
-    a: 'Nothing. There is no subscription, no premium tier and no advertising anywhere in the app. Every account gets the same features, and nothing about you is sold or used to target ads.',
+    a: 'Nothing. There is no subscription, no premium tier and no advertising anywhere in the app. Every account gets every feature.',
   },
   {
-    q: 'Where do I download it?',
-    a: 'From the project releases page on GitHub. Serafim is distributed as a signed APK rather than through the Play Store, so there is no store account to create and no review queue to wait in.',
+    q: 'Where do I get it?',
+    a: 'On APKPure. Tap any "Get the app" button on this page, download Serafim, and open it to install. If your phone asks whether it may install apps from there, allow it.',
   },
   {
-    q: 'How do I install it?',
-    a: 'Download the APK, then open it. Android will ask whether this app may install packages — allow it. Every release is signed with the same key, so later versions install over your existing copy instead of sitting beside it.',
+    q: 'What is an Echo?',
+    a: 'A quick "anyone up for a chat?" with a short message of your own. It reaches up to 30 people who share your interests — you choose friends, new people, or both — and they get a notification. Anyone who taps it lands straight in a chat with you. An Echo lasts 30 minutes, you can send three a day, and you can stop receiving them in Settings.',
+  },
+  {
+    q: 'What are Halo and Wings?',
+    a: 'Halo tells your friends you are free to chat right now. Wings are your close friends — the people you want nearest.',
+  },
+  {
+    q: 'Will I lose my chats if I change phones?',
+    a: 'No. Serafim backs up your chats to your own Google Drive automatically, and restores them when you sign in on a new phone. It also offers to back up before an update.',
   },
   {
     q: 'How do updates work?',
-    a: 'The app checks for a new version several times a day, downloads it, verifies the SHA-256 checksum, and then hands you the Android installer. New versions are also announced in the official SERAFIM chat. A critical update is marked mandatory and will block the app until it is installed.',
+    a: 'The app lets you know when a new version is ready, and new versions are announced in the official SERAFIM chat. You can back up and update in one tap.',
   },
   {
     q: 'Will it run on my phone?',
-    a: 'Serafim supports Android 7.0 and up, and a single APK covers both 32-bit and 64-bit phones — including many itel and Android Go devices that other apps no longer support.',
+    a: 'Serafim runs on Android 7.0 and up, including many older and budget phones that other apps have left behind.',
   },
   {
-    q: 'Are my photos and voice notes uploaded to a server?',
-    a: 'No. Images are resized on your phone before they are sent, then delivered to the people in the conversation. They are never stored on our servers, and they live on the devices of the people you sent them to.',
+    q: 'Can I control who reaches me?',
+    a: 'Yes. Lock your profile, choose who may send you friend requests and who may add you to groups, turn off read receipts or Echos, and report any message or post that crosses the line.',
   },
   {
-    q: 'What happens to my password?',
-    a: 'It is handed straight to the identity service that runs sign-in — it never passes through Serafim servers, which only ever see a session token. The refresh token is kept in encrypted storage on your phone.',
-  },
-  {
-    q: 'Can I lock my profile?',
-    a: 'Yes. Locking your profile hides your friends, followers and following from anyone who is not already a friend. You can also decide whether strangers may send friend requests, and whether anyone, only friends, or nobody can add you to a group.',
+    q: 'Can I delete my account?',
+    a: 'Yes, any time, from the privacy settings in the app.',
   },
   {
     q: 'Can I use it on an iPhone?',
-    a: 'Not yet. The iOS build is in development, along with the web and desktop builds. Android is the only released platform right now, and it is the one that gets new features first.',
-  },
-  {
-    q: 'How do I report a problem?',
-    a: 'Open an issue on the project repository. Bug reports with the device model, Android version and the app version you are running are the fastest ones to act on.',
+    a: 'Not yet. Android is the only version available right now, and it gets new features first.',
   },
 ];
 ---
@@ -56,11 +56,11 @@ const faqs = [
         <p class="eyebrow">Questions</p>
         <h2 class="h2">The things people ask first.</h2>
         <p class="lead">
-          Still stuck? Ask on GitHub — issues are read and answered by the
-          people who build the app.
+          Still stuck? Send us a message — every question is read and
+          answered by the people who build the app.
         </p>
         <div class="btn-row">
-          <a class="btn btn--ghost" href={`${site.repo}/issues`} target="_blank" rel="noopener">
+          <a class="btn btn--ghost" href="mailto:hello@serafim.app">
             Ask a question
           </a>
         </div>

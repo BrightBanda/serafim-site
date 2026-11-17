@@ -17,7 +17,7 @@ export const site = {
   credit: '@HAUTEK | BRIGHTBANDA',
   tagline: 'Connect across every sector.',
   description:
-    'Serafim is a free chat and social app: chats with reactions, voice notes and stickers, a feed of posts and Circles, Echos that find people up for a chat, and Draw Together with friends. No ads, no subscription.',
+    'Serafim is a free chat and social app for Android. Message friends, share Moments, join groups and meet people who share your interests. No ads, no subscription.',
 } as const;
 
 /**

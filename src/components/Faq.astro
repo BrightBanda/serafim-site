@@ -3,62 +3,52 @@ import { site } from '../site';
 
 const faqs = [
   {
-    q: 'What is Serafim, exactly?',
-    a: 'A free chat and social app. Chat one-to-one or in groups, share posts in your feed and Circles, send Echos when you are up for a chat, draw together with friends, and meet people through the interests you share.',
+    q: 'What is Serafim?',
+    a: 'A free chat and social app. Chat with friends one-to-one or in groups, share Moments and posts, and meet people through the interests you share.',
   },
   {
     q: 'How much does it cost?',
-    a: 'Nothing. There is no subscription, no premium tier and no advertising anywhere in the app. Every account gets every feature.',
+    a: 'Nothing. There is no subscription, no premium tier and no advertising.',
   },
   {
-    q: 'Where do I get it?',
+    q: 'Where do I download it?',
     a: 'On APKPure. Tap any "Get the app" button on this page, download Serafim, and open it to install. If your phone asks whether it may install apps from there, allow it.',
   },
   {
-    q: 'What is an Echo?',
-    a: 'A quick "anyone up for a chat?" with a short message of your own. It reaches up to 30 people who share your interests — you choose friends, new people, or both — and they get a notification. Anyone who taps it lands straight in a chat with you. An Echo lasts 30 minutes, you can send three a day, and you can stop receiving them in Settings.',
-  },
-  {
-    q: 'What are Halo and Wings?',
-    a: 'Halo tells your friends you are free to chat right now. Wings are your close friends — the people you want nearest.',
+    q: 'Will it run on my phone?',
+    a: 'Serafim runs on Android 7.0 and up, including many older and budget phones. An iPhone version is not available yet.',
   },
   {
     q: 'Will I lose my chats if I change phones?',
-    a: 'No. Serafim backs up your chats to your own Google Drive automatically, and restores them when you sign in on a new phone. It also offers to back up before an update.',
-  },
-  {
-    q: 'How do updates work?',
-    a: 'The app lets you know when a new version is ready, and new versions are announced in the official SERAFIM chat. You can back up and update in one tap.',
-  },
-  {
-    q: 'Will it run on my phone?',
-    a: 'Serafim runs on Android 7.0 and up, including many older and budget phones that other apps have left behind.',
-  },
-  {
-    q: 'Can I control who reaches me?',
-    a: 'Yes. Lock your profile, choose who may send you friend requests and who may add you to groups, turn off read receipts or Echos, and report any message or post that crosses the line.',
+    a: 'No. Serafim backs up your chats to your own Google Drive and restores them when you sign in on a new phone.',
   },
   {
     q: 'Can I delete my account?',
     a: 'Yes, any time, from the privacy settings in the app.',
   },
-  {
-    q: 'Can I use it on an iPhone?',
-    a: 'Not yet. Android is the only version available right now, and it gets new features first.',
-  },
 ];
 ---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  })}
+/>
 
 <section class="section" id="faq">
   <div class="wrap">
     <div class="split">
       <div class="reveal">
         <p class="eyebrow">Questions</p>
-        <h2 class="h2">The things people ask first.</h2>
-        <p class="lead">
-          Still stuck? Send us a message — every question is read and
-          answered by the people who build the app.
-        </p>
+        <h2 class="h2">Quick answers.</h2>
+        <p class="lead">Still stuck? Send us a message.</p>
         <div class="btn-row">
           <a class="btn btn--ghost" href="mailto:hello@serafim.app">
             Ask a question

@@ -2,9 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
-import Discover from '../components/Discover.astro';
-import Privacy from '../components/Privacy.astro';
-import Free from '../components/Free.astro';
 import Download from '../components/Download.astro';
 import Faq from '../components/Faq.astro';
 import { site } from '../site';
@@ -12,9 +9,8 @@ import { site } from '../site';
 const strip = [
   'No ads',
   'No subscription',
+  'Moments',
   'Echos',
-  'Draw Together',
-  'Reactions',
   'Backups to Google Drive',
 ];
 ---
@@ -33,9 +29,6 @@ const strip = [
   </div>
 
   <Features />
-  <Discover />
-  <Privacy />
-  <Free />
   <Download />
   <Faq />
 
